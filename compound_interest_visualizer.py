@@ -37,9 +37,9 @@ ax.yaxis.set_major_formatter(tick)
 plt.style.use('classic')
 plt.plot(time_plot, compound_interest, 'r-', marker='o', label='Future Value')
 plt.plot(time_plot, total_contribution, 'b-', marker='o', label='Total Contribution')
-
 fig.tight_layout()
 ax.legend(loc='upper left')
 plt.tight_layout()
 plt.grid()
+
 plt.show()
