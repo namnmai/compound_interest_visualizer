@@ -6,7 +6,7 @@ import matplotlib.ticker as mtick
 principal = int(input('What is your initial investment? (in USD)\n'))
 contribution = int(input('How much are you contributing a month? (in USD) \n'))
 time = int(input('What is the length of time? (in years)\n'))
-interest_rate = int(input('What is the annual interest rate?\n'))/100
+interest_rate = float(input('What is the annual interest rate?\n'))/100
 
 # Creates a numpy array to represent the x-values (time)
 time_plot = np.arange(time+1)
