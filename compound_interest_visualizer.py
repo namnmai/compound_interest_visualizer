@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.ticker as mtick
 
 
+
 def get_user_input():
     """Function to get and validate user input for investment parameters."""
     while True:
