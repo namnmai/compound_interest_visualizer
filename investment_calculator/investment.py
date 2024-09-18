@@ -86,30 +86,51 @@ class Investment:
         layout = go.Layout(
             title=dict(
                 text='Total Savings Over Time',
-                x=0.5,
+                x=0.5,  # Center the title
                 xanchor='center',
                 font=dict(size=24)
             ),
             xaxis=dict(
-                # ... existing xaxis settings ...
+                title='Time (years)',
+                titlefont=dict(size=18),
+                tickfont=dict(size=14),
+                showgrid=True,
+                gridcolor='lightgray',
+                gridwidth=1,
+                zeroline=False,
+                ticks='outside',
+                ticklen=8,
+                tickwidth=2,
+                tickcolor='#000'
             ),
             yaxis=dict(
-                # ... existing yaxis settings ...
+                title='US Dollars ($)',
+                titlefont=dict(size=18),
+                tickfont=dict(size=14),
+                tickformat='$,.0f',
+                showgrid=True,
+                gridcolor='lightgray',
+                gridwidth=1,
+                zeroline=False,
+                ticks='outside',
+                ticklen=8,
+                tickwidth=2,
+                tickcolor='#000'
             ),
             autosize=True,
-            height=600,
+            height=600,  # Adjust height as needed
             margin=dict(
                 l=50,
                 r=50,
                 t=80,
-                b=100  # Increased bottom margin
+                b=100  # Increase bottom margin to accommodate legend
             ),
             plot_bgcolor='white',
             paper_bgcolor='white',
             legend=dict(
-                orientation='h',
+                orientation='h',  # Horizontal legend
                 x=0.5,
-                y=-0.2,
+                y=-0.2,  # Position below x-axis; adjust as needed
                 xanchor='center',
                 yanchor='top'
             ),
