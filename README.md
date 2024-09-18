@@ -11,7 +11,8 @@ This program calculates the compound interest earned over time (with monthly con
 
 
 ## Technologies Used<a name="technologies-used"></a>
-- Python
+- Python (3.12.4)
+- matplotlib (3.9.0)
 
 
 ## Background <a name="background"></a>
