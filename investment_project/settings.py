@@ -33,6 +33,10 @@ ALLOWED_HOSTS = [
     'compoundinterestvisualizer.com'
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'compound-interest-visualizer-efb4a179a2bc.herokuapp.com',
+    'compoundinterestvisualizer.com'
+]
 
 # Application definition
 
