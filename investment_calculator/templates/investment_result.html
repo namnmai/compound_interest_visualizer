@@ -1,0 +1,95 @@
+<!-- investment_calculator/templates/investment_result.html -->
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block title %}Investment Results{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Results</h1>
+    
+    <!-- Plot Section -->
+    <div class="row">
+        <div class="col-12">
+            <div id="graph"></div>
+        </div>
+    </div>
+
+    <!-- Table Section -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <h3 class="text-center">Detailed Values</h3>
+            <!-- Add a custom class for the table container -->
+            <div class="table-container" style="width: 100%;">
+                <table class="table table-striped mt-2">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            {% for row in table_data %}
+                                <th class="text-center">Year {{ row.year }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Future Value</th>
+                            {% for row in table_data %}
+                                <td class="text-right">${{ row.future_value|floatformat:2|intcomma }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <th>Total Contribution</th>
+                            {% for row in table_data %}
+                                <td class="text-right">${{ row.total_contribution|floatformat:2|intcomma }}</td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="text-center mt-4">
+        <a href="{% url 'calculate_investment' %}" class="btn btn-secondary">Try Again</a>
+    </div>
+</div>
+
+<!-- Include Plotly.js via CDN -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+    var graph = JSON.parse('{{ graph_json|escapejs }}');
+    var config = {responsive: true};
+    Plotly.newPlot('graph', graph.data, graph.layout, config);
+</script>
+
+<!-- Custom Styles -->
+<style>
+    /* Existing styles */
+    .table-container {
+        overflow-x: auto;
+        width: 100%;
+    }
+    .table td, .table th {
+        font-size: 0.9em;
+        padding: 0.5rem;
+        white-space: nowrap;
+    }
+
+    /* Custom scrollbar styles for WebKit browsers */
+    .table-container::-webkit-scrollbar {
+        height: 8px;  /* Adjust the height of the scrollbar */
+    }
+    .table-container::-webkit-scrollbar-track {
+        background-color: #f1f1f1;  /* Scrollbar track color */
+    }
+    .table-container::-webkit-scrollbar-thumb {
+        background-color: #888;  /* Scrollbar thumb color */
+        border-radius: 4px;
+    }
+    .table-container::-webkit-scrollbar-thumb:hover {
+        background-color: #555;  /* Scrollbar thumb color on hover */
+    }
+</style>
+
+{% endblock %}

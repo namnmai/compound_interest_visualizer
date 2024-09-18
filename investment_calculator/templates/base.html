@@ -1,0 +1,59 @@
+<!-- investment_calculator/templates/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Investment Calculator{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand" href="{% url 'calculate_investment' %}">Investment Calculator</a>
+            <!-- Toggle button for mobile view -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <!-- Home Button -->
+                    <li class="nav-item {% if request.resolver_match.url_name == 'calculate_investment' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'calculate_investment' %}">Home</a>
+                    </li>
+                    <!-- About Button -->
+                    <li class="nav-item {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="py-5">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+     <!-- Footer -->
+     <footer class="bg-light text-center text-muted py-3">
+        <div class="container">
+            <small>
+                The information provided by the Investment Calculator is for educational and informational purposes only and should not be construed as financial advice. The results generated are purely theoretical and are meant to demonstrate the power of compound interest. They do not guarantee future performance or investment returns. Always consult with a qualified financial advisor before making any investment decisions.
+            </small>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>

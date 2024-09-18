@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Investment Calculator{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Investment Calculator</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.principal.label_tag }}
+                    {{ form.principal }}
+                    {{ form.principal.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.contribution.label_tag }}
+                    {{ form.contribution }}
+                    {{ form.contribution.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.time.label_tag }}
+                    {{ form.time }}
+                    {{ form.time.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.interest_rate.label_tag }}
+                    {{ form.interest_rate }}
+                    {{ form.interest_rate.errors }}
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Calculate</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
