@@ -131,7 +131,6 @@ class Investment:
                 bordercolor="Black",
                 borderwidth=2,
                 bgcolor="LightGray",
-                borderpad=4,
                 orientation='h',  # Horizontal legend
                 x=0.5,
                 y=-0.2,  # Position below x-axis; adjust as needed
