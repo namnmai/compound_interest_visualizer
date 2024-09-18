@@ -129,8 +129,8 @@ class Investment:
             paper_bgcolor='white',
             legend=dict(
                 bordercolor="Black",
-                borderwidth=2,
-                bgcolor="LightGray",
+                borderwidth=1,
+                bgcolor="white",
                 orientation='h',  # Horizontal legend
                 x=0.5,
                 y=-0.2,  # Position below x-axis; adjust as needed
