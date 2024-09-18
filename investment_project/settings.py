@@ -29,8 +29,8 @@ DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'https://compound-interest-visualizer-efb4a179a2bc.herokuapp.com/',
-    'https://compoundinterestvisualizer.com'
+    'compound-interest-visualizer-efb4a179a2bc.herokuapp.com',
+    'compoundinterestvisualizer.com'
 ]
 
 
