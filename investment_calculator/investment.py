@@ -88,59 +88,40 @@ class Investment:
                 text='Total Savings Over Time',
                 x=0.5,  # Center the title
                 xanchor='center',
-                font=dict(size=24)
+                font=dict(size=20)  # Reduced font size for mobile
             ),
             xaxis=dict(
                 title='Time (years)',
-                titlefont=dict(size=18),
-                tickfont=dict(size=14),
+                titlefont=dict(size=14),
+                tickfont=dict(size=12),
                 showgrid=True,
                 gridcolor='lightgray',
-                gridwidth=1,
-                zeroline=False,
-                ticks='outside',
-                ticklen=8,
-                tickwidth=2,
-                tickcolor='#000'
+                gridwidth=1
             ),
             yaxis=dict(
                 title='US Dollars ($)',
-                titlefont=dict(size=18),
-                tickfont=dict(size=14),
+                titlefont=dict(size=14),
+                tickfont=dict(size=12),
                 tickformat='$,.0f',
                 showgrid=True,
                 gridcolor='lightgray',
-                gridwidth=1,
-                zeroline=False,
-                ticks='outside',
-                ticklen=8,
-                tickwidth=2,
-                tickcolor='#000'
+                gridwidth=1
             ),
-            autosize=True,
-            height=700,  # Adjust as needed
-            margin=dict(
-                l=50,
-                r=50,
-                t=80,
-                b=100
-            ),
-            plot_bgcolor='white',
-            paper_bgcolor='white',
-            legend=dict(
-                x=0.5,
-                y=-0.2,
-                bordercolor='black',
-                borderwidth=1,
-                font=dict(size=14),
-                orientation='h',
-                xanchor='center',
-                yanchor='top'
-            ),
+            autosize=True,  # Make the graph resize automatically
+            margin=dict(l=50, r=50, t=60, b=60),  # Adjusted margins
             hovermode='x unified',
+            legend=dict(
+                orientation='h',
+                x=0.5,
+                y=-0.3,  # Position below the graph
+                xanchor='center',
+                yanchor='top',
+                font=dict(size=12)
+            )
         )
 
         fig = go.Figure(data=data, layout=layout)
-        # Convert the figure to JSON
+
+        # Convert the plot to JSON format for rendering in the template
         graph_json = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
         return graph_json
