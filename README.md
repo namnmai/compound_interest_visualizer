@@ -6,7 +6,7 @@
 
 A compound interest calculator web application designed to demonstrate the power of compound interest and investment growth over time.
 
-<a href="https://compoundinterestvisualizer" target="_blank"><img src="https://img.shields.io/badge/Website-6da360?style=for-the-badge&logo=Django"></a>
+<a href="https://compoundinterestvisualizer.com" target="_blank"><img src="https://img.shields.io/badge/Website-6da360?style=for-the-badge&logo=Django"></a>
 
 ## Table of Contents
 - [Technologies Used](#technologies-used)
