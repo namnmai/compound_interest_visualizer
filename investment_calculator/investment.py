@@ -86,38 +86,34 @@ class Investment:
         layout = go.Layout(
             title=dict(
                 text='Total Savings Over Time',
-                x=0.5,  # Center the title
+                x=0.5,
                 xanchor='center',
-                font=dict(size=20)  # Reduced font size for mobile
+                font=dict(size=24)
             ),
             xaxis=dict(
-                title='Time (years)',
-                titlefont=dict(size=14),
-                tickfont=dict(size=12),
-                showgrid=True,
-                gridcolor='lightgray',
-                gridwidth=1
+                # ... existing xaxis settings ...
             ),
             yaxis=dict(
-                title='US Dollars ($)',
-                titlefont=dict(size=14),
-                tickfont=dict(size=12),
-                tickformat='$,.0f',
-                showgrid=True,
-                gridcolor='lightgray',
-                gridwidth=1
+                # ... existing yaxis settings ...
             ),
-            autosize=True,  # Make the graph resize automatically
-            margin=dict(l=50, r=50, t=60, b=60),  # Adjusted margins
-            hovermode='x unified',
+            autosize=True,
+            height=600,
+            margin=dict(
+                l=50,
+                r=50,
+                t=80,
+                b=100  # Increased bottom margin
+            ),
+            plot_bgcolor='white',
+            paper_bgcolor='white',
             legend=dict(
                 orientation='h',
                 x=0.5,
-                y=-0.3,  # Position below the graph
+                y=-0.2,
                 xanchor='center',
-                yanchor='top',
-                font=dict(size=12)
-            )
+                yanchor='top'
+            ),
+            hovermode='x unified',
         )
 
         fig = go.Figure(data=data, layout=layout)
