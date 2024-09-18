@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.12.4-3670A0.svg)
 
-This program calculates the compound interest earned over time (with monthly contributions) and returns a labeled plot illustrating the growth.
+This program calculates the compound interest earned over time (with monthly contributions) and returns a labeled plot and table illustrating investment growth.
 
 
 ## Table of Contents
@@ -12,7 +12,10 @@ This program calculates the compound interest earned over time (with monthly con
 
 ## Technologies Used<a name="technologies-used"></a>
 - Python (3.12.4)
-- matplotlib (3.9.0)
+- Plotly (5.24.1)
+- Django (5.1.1)
+- NumPy (2.1.1)
+- Bootstrap (4.3.1)
 
 
 ## Background <a name="background"></a>
