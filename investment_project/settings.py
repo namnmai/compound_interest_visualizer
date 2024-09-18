@@ -34,8 +34,8 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'compound-interest-visualizer-efb4a179a2bc.herokuapp.com',
-    'compoundinterestvisualizer.com'
+    'https://compound-interest-visualizer-efb4a179a2bc.herokuapp.com',
+    'https://compoundinterestvisualizer.com'
 ]
 
 # Application definition
