@@ -1,5 +1,20 @@
+# Portfolio Website
+
+![Python](https://img.shields.io/badge/Python-3.12.4-3670A0.svg)
+
 This program calculates the compound interest earned over time (with monthly contributions) and returns a labeled plot illustrating the growth.
 
+
+## Table of Contents
+- [Technologies Used](#technologies-used)
+- [Background](#background)
+
+
+## Technologies Used<a name="technologies-used"></a>
+- Python
+
+
+## Background <a name="background"></a>
 The calculations follow the formula below:
 
 $P =$ Initial investment (in dollars)
