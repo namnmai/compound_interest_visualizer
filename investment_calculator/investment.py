@@ -132,7 +132,8 @@ class Investment:
                 x=0.5,
                 y=-0.2,  # Position below x-axis; adjust as needed
                 xanchor='center',
-                yanchor='top'
+                yanchor='top',
+                font=dict(size=14)
             ),
             hovermode='x unified',
         )
