@@ -17,13 +17,13 @@
             <!-- Brand -->
             <a class="navbar-brand" href="{% url 'calculate_investment' %}">Compound Interest Calculator</a>
             <!-- Toggle button for mobile view -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ms-auto"> <!-- 'ms-auto' aligns items to the right in Bootstrap 5 -->
                     <!-- Home Button -->
                     <li class="nav-item {% if request.resolver_match.url_name == 'calculate_investment' %}active{% endif %}">
                         <a class="nav-link" href="{% url 'calculate_investment' %}">Home</a>
@@ -58,6 +58,6 @@
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    
+
 </body>
 </html>
