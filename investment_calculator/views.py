@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import InvestmentForm
-from .investment import Investment
+from .investment import Investment  # Custom class handling calculations
 
 def calculate_investment(request):
     if request.method == 'POST':
@@ -25,12 +25,11 @@ def calculate_investment(request):
             context = {
                 'graph_json': graph_json,
                 'table_data': table_data,
-                'form': form  # Optional: Pass the form back for further use
             }
-            return render(request, 'investment_result.html', context)
+            return render(request, 'calculator/investment_result.html', context)
     else:
         form = InvestmentForm()
-    return render(request, 'investment_form.html', {'form': form})
+    return render(request, 'calculator/calculate_investment.html', {'form': form})
 
 
 def about(request):
