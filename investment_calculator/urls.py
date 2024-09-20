@@ -7,6 +7,4 @@ urlpatterns = [
     # Update the path for the 'about' page if necessary
     path('about/', views.about, name='about'),
     # Add other URL patterns here if necessary
-    path('contact/', views.contact, name='contact'),
-    path('contact/success/', views.contact_success, name='contact_success')
 ]

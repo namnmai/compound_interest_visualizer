@@ -23,28 +23,3 @@ class InvestmentForm(forms.Form):
         max_value=100,
         widget=forms.NumberInput(attrs={'class': 'form-control'})
     )
-
-class ContactForm(forms.Form):
-    name = forms.CharField(
-        max_length=100,
-        widget=forms.TextInput(attrs={
-            'class': 'form-control',
-            'placeholder': 'Your Name',
-            'required': 'required'
-        })
-    )
-    email = forms.EmailField(
-        widget=forms.EmailInput(attrs={
-            'class': 'form-control',
-            'placeholder': 'Your Email',
-            'required': 'required'
-        })
-    )
-    message = forms.CharField(
-        widget=forms.Textarea(attrs={
-            'class': 'form-control',
-            'placeholder': 'Your Message',
-            'rows': 5,
-            'required': 'required'
-        })
-    )
