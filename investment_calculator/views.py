@@ -26,10 +26,10 @@ def calculate_investment(request):
                 'graph_json': graph_json,
                 'table_data': table_data,
             }
-            return render(request, 'investment_result.html', context)
+            return render(request, 'investment_form.html', context)
     else:
         form = InvestmentForm()
-    return render(request, 'calculate_investment.html', {'form': form})
+    return render(request, 'investment_result.html', {'form': form})
 
 
 def about(request):
