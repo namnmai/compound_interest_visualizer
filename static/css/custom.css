@@ -1,50 +1,73 @@
+/* Body Background */
+body {
+    background-color: #f0f2f5; /* A very light gray for the background */
+}
+
 /* Centering the Header */
 h1.text-center {
     font-weight: bold;
-    font-size: 2rem;
-    color: #0d6efd; /* Bootstrap primary color */
+    font-size: 2.5rem;
+    color: #333333; /* Dark gray text color */
+    margin-bottom: 30px;
 }
 
 /* Form Container */
 form {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* White background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+    margin-bottom: 30px; /* Space between form and other elements */
+}
+
+/* Form Labels */
+form label {
+    font-weight: bold;
+    color: #555555; /* Medium gray text color for labels */
+}
+
+/* Input Fields */
+form .form-control {
+    border: 1px solid #cccccc; /* Light gray border */
+    border-radius: 5px;
+    padding: 10px;
 }
 
 /* Submit Button */
 button[type="submit"] {
-    background-color: #0d6efd; /* Primary color */
+    background-color: #007bff; /* Bootstrap primary blue color */
     border: none;
     font-size: 1.2rem;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border-radius: 5px;
+    color: #ffffff; /* White text color */
     cursor: pointer;
+    margin-top: 20px;
 }
 
 button[type="submit"]:hover {
-    background-color: #0b5ed7; /* Darker primary color */
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 /* Error Messages */
 .alert.alert-danger {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    color: #ff0000; /* Red text color for error messages */
     margin-bottom: 20px;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 576px) {
     h1.text-center {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     form {
-        padding: 20px;
+        padding: 30px;
     }
 
     button[type="submit"] {
         font-size: 1rem;
-        padding: 8px 16px;
+        padding: 10px 20px;
     }
 }
