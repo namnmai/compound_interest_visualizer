@@ -1,31 +1,25 @@
 from django import forms
 
 class InvestmentForm(forms.Form):
-    initial_investment = forms.DecimalField(
-        label="Initial Investment ($)",
+    
+    principal = forms.IntegerField(
+        label="Initial Investment (USD)",
         min_value=0,
-        decimal_places=2,
-        max_digits=15,
-        widget=forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter initial investment'})
+        widget=forms.NumberInput(attrs={'class': 'form-control'})
     )
-    monthly_contribution = forms.DecimalField(
-        label="Monthly Contribution ($)",
+    contribution = forms.IntegerField(
+        label="Monthly Contribution (USD)",
         min_value=0,
-        decimal_places=2,
-        max_digits=15,
-        widget=forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter monthly contribution'})
+        widget=forms.NumberInput(attrs={'class': 'form-control'})
     )
-    investment_years = forms.IntegerField(
-        label="Investment Duration (Years)",
+    time = forms.IntegerField(
+        label="Time (Years)",
         min_value=1,
-        max_value=100,
-        widget=forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter duration in years'})
+        widget=forms.NumberInput(attrs={'class': 'form-control'})
     )
-    interest_rate = forms.DecimalField(
-        label="Interest Rate (%)",
+    interest_rate = forms.FloatField(
+        label="Annual Interest Rate (%)",
         min_value=0,
         max_value=100,
-        decimal_places=2,
-        max_digits=5,
-        widget=forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter annual interest rate'})
+        widget=forms.NumberInput(attrs={'class': 'form-control'})
     )
