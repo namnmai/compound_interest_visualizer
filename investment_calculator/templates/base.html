@@ -23,16 +23,6 @@
             </button>
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto"> <!-- 'ms-auto' aligns items to the right in Bootstrap 5 -->
-                    <!-- Home Button -->
-                    <li class="nav-item {% if request.resolver_match.url_name == 'calculate_investment' %}active{% endif %}">
-                        <a class="nav-link" href="{% url 'calculate_investment' %}">Home</a>
-                    </li>
-                    <!-- About Button -->
-                    <li class="nav-item {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
-                        <a class="nav-link" href="{% url 'about' %}">About</a>
-                    </li>
-                </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'calculate_investment' %}">Home</a>
