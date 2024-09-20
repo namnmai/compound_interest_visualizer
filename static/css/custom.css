@@ -30,11 +30,9 @@ body {
 /* Add background color to FAQ page container */
 .faq-page-container {
     background-color: #ffffff; /* White background color */
-    padding: 80px 30px; /* Further increased padding for top and bottom */
+    padding: 20px;
     border-radius: 8px; /* Optional: Add rounded corners */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow for depth */
-    margin-top: 60px; /* Increased margin on top */
-    margin-bottom: 60px; /* Increased margin on bottom */
 }
 
 /* Match the LaTeX content background with FAQ container */
@@ -109,6 +107,7 @@ main {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px; /* Add gap between table and input box */
 }
 
 /* Input Field Adjustments */
@@ -244,6 +243,12 @@ footer a:hover {
         padding: 15px;
     }
 
+    /* Adjust the width of About and FAQ containers for better readability */
+    .about-page-container, .faq-page-container {
+        max-width: 90%;  /* Full width on mobile */
+        padding: 30px 15px;  /* Adjust padding to make content more readable */
+    }
+
     .col-lg-8, .col-lg-4 {
         max-width: 100%;  /* Full width on mobile */
     }
@@ -268,6 +273,7 @@ footer a:hover {
 
     .math-content {
         font-size: 0.85em; /* Adjust the size as needed */
+        padding: 15px;  /* Adjust padding for readability */
         overflow-x: auto; /* Allow horizontal scrolling if necessary */
     }
 }
