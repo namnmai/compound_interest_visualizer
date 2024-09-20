@@ -1,39 +1,53 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Compound Interest Calculator{% endblock %}
+{% block title %}Calculate Your Investment{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1 class="text-center mb-4">See How Your Investments Can Grow</h1>
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <form method="post">
-                {% csrf_token %}
-                <div class="form-group">
-                    {{ form.principal.label_tag }}
-                    {{ form.principal }}
-                    {{ form.principal.errors }}
+<h1 class="text-center mb-4">Calculate Your Investment Growth</h1>
+
+<!-- Investment Form -->
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+        <form method="post" class="mt-3">
+            {% csrf_token %}
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    Please correct the errors below.
                 </div>
-                <div class="form-group">
-                    {{ form.contribution.label_tag }}
-                    {{ form.contribution }}
-                    {{ form.contribution.errors }}
-                </div>
-                <div class="form-group">
-                    {{ form.time.label_tag }}
-                    {{ form.time }}
-                    {{ form.time.errors }}
-                </div>
-                <div class="form-group">
-                    {{ form.interest_rate.label_tag }}
-                    {{ form.interest_rate }}
-                    {{ form.interest_rate.errors }}
-                </div>
-                <button type="submit" class="btn btn-primary w-100">
-                    <i class="fas fa-calculator me-2"></i> Calculate
-                </button>
-            </form>
-        </div>
+            {% endif %}
+            <div class="mb-3">
+                {{ form.principal.label_tag }}
+                {{ form.principal }}
+                {% for error in form.principal.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="mb-3">
+                {{ form.contribution.label_tag }}
+                {{ form.contribution }}
+                {% for error in form.contribution.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="mb-3">
+                {{ form.time.label_tag }}
+                {{ form.time }}
+                {% for error in form.time.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="mb-3">
+                {{ form.interest_rate.label_tag }}
+                {{ form.interest_rate }}
+                {% for error in form.interest_rate.errors %}
+                    <div class="text-danger">{{ error }}</div>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-primary w-100">
+                <i class="fas fa-calculator me-2"></i> Calculate
+            </button>
+        </form>
     </div>
 </div>
 {% endblock %}
