@@ -50,12 +50,12 @@ def contact(request):
             subject = f'New Contact Form Submission from {name}'
             full_message = f'Name: {name}\nEmail: {email}\n\nMessage:\n{message}'
             from_email = settings.DEFAULT_FROM_EMAIL
-            recipient_list = [settings.CONTACT_EMAIL]  # Define in settings.py
+            recipient_list = [settings.CONTACT_EMAIL]
 
             # Send email
             send_mail(subject, full_message, from_email, recipient_list)
 
-            # Redirect or render a success message
+            # Redirect to success page
             return redirect('contact_success')
     else:
         form = ContactForm()
