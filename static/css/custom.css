@@ -3,6 +3,8 @@ body {
     background-color: #f0f2f5;
     color: #333333;
     font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 /* Navbar Styling */
@@ -67,21 +69,25 @@ main {
 .border-container.graph {
     border: 2px solid #000000;
     padding: 10px;
+    flex-grow: 1;
 }
 
 /* Plot and Table Container */
 .row {
     display: flex;
     align-items: stretch;
+    flex-wrap: wrap; /* Allow wrapping for better mobile layout */
 }
 
 .col-md-8, .col-md-4 {
     display: flex;
     flex-direction: column;
+    width: 100%; /* Full width on mobile */
 }
 
 #graph {
     width: 100%;
+    height: auto; /* Ensure plot resizes properly */
     flex-grow: 1;
 }
 
@@ -92,7 +98,6 @@ main {
     width: 100%;
 }
 
-/* Table Styles */
 .table td, .table th {
     font-size: 1.1em;
     padding: 0.5rem;
@@ -122,6 +127,7 @@ footer {
     background-color: #212529;
     color: #ffffff;
     padding: 20px 0;
+    text-align: center;
 }
 
 footer a {
@@ -146,6 +152,7 @@ footer a:hover {
     font-weight: bold;
     color: #333;
     margin-top: 40px;
+    text-align: center; /* Center title on mobile */
 }
 
 .about-page h3 {
@@ -184,28 +191,8 @@ footer a:hover {
     align-items: center;
 }
 
-/* Form Styling Adjustments */
-.border-container .form-control {
-    font-size: 1.1em;
-    padding: 12px;
-}
-
-.border-container label {
-    font-size: 1.1em;
-    margin-bottom: 5px;
-}
-
-.btn {
-    font-size: 1.1em;
-    padding: 10px;
-}
-
-/* Media Query for Mobile Devices */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-
     .about-page h1 {
         font-size: 2rem;
     }
@@ -232,5 +219,9 @@ footer a:hover {
 
     .table-container {
         max-height: 150px;
+    }
+
+    .col-md-8, .col-md-4 {
+        padding: 10px;
     }
 }
