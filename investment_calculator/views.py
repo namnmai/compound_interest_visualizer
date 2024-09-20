@@ -1,8 +1,6 @@
-from .forms import InvestmentForm, ContactForm
+from .forms import InvestmentForm
 from .investment import Investment
-from django.shortcuts import render, redirect
-from django.core.mail import send_mail
-from django.conf import settings
+from django.shortcuts import render
 
 def calculate_investment(request):
     if request.method == "POST":
