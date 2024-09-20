@@ -1,18 +1,18 @@
 /* General Body Styling */
 body {
-    background-color: #f0f2f5; /* Light gray background */
-    color: #333333; /* Dark text color */
+    background-color: #f0f2f5;
+    color: #333333;
     font-family: 'Arial', sans-serif;
 }
 
 /* Navbar Styling */
 .navbar {
-    background-color: #212529 !important; /* Darker gray to match footer */
-    width: 100%; /* Full width */
+    background-color: #212529 !important;
+    width: 100%;
 }
 
 .navbar-collapse {
-    justify-content: flex-end; /* Align the links to the right */
+    justify-content: flex-end;
 }
 
 .navbar-nav .nav-item {
@@ -21,18 +21,16 @@ body {
 }
 
 .navbar-nav .nav-link {
-    font-size: 18px; /* Font size for navbar links */
-    color: #ffffff; /* White text color for links */
+    font-size: 18px;
+    color: #ffffff;
 }
 
-/* Change navbar link color on hover */
 .navbar-nav .nav-link:hover {
-    color: #adb5bd; /* Light gray on hover */
+    color: #adb5bd;
 }
 
-/* Toggler Styling */
 .navbar-toggler {
-    border-color: #ffffff !important; /* White border for toggler */
+    border-color: #ffffff !important;
 }
 
 .navbar-toggler-icon {
@@ -43,32 +41,32 @@ body {
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    flex-grow: 1; /* Allow main to grow and fill the space */
+    justify-content: center;
+    flex-grow: 1;
     padding: 20px;
 }
 
 /* Outer Container */
 .outer-container {
-    padding: 0; /* Remove padding */
+    padding: 0;
 }
 
 /* Border Container Styling */
 .border-container {
-    border: 2px solid #000000; /* Inner border for each section */
-    border-radius: 5px; /* Slightly rounded corners */
-    background-color: #ffffff; /* Ensure the background is white */
-    box-sizing: border-box; /* Include padding and border in total width/height */
-    padding: 10px; /* Inner padding */
-    overflow: hidden; /* Prevent content overflow */
+    border: 2px solid #000000;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    padding: 10px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
 /* Plot Section */
 .border-container.graph {
-    border: 2px solid #000000; /* Border for graph container */
-    padding: 10px; /* Inner padding */
+    border: 2px solid #000000;
+    padding: 10px;
 }
 
 /* Plot and Table Container */
@@ -82,124 +80,157 @@ main {
     flex-direction: column;
 }
 
-/* Plot Settings */
 #graph {
-    width: 100%; /* Full width */
-    flex-grow: 1; /* Allows the plot container to take up most of the space */
+    width: 100%;
+    flex-grow: 1;
 }
 
 /* Table Container Styling */
 .table-container {
-    max-height: 200px; /* Adjust as needed */
-    overflow-y: auto; /* Enable vertical scrolling */
-    width: 100%; /* Full width */
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
 }
 
 /* Table Styles */
 .table td, .table th {
-    font-size: 1.1em; /* Increase font size for table cells */
-    padding: 0.5rem; /* Padding */
-    white-space: nowrap; /* Prevent wrapping */
+    font-size: 1.1em;
+    padding: 0.5rem;
+    white-space: nowrap;
 }
 
 /* Custom Scrollbar Styles */
 .table-container::-webkit-scrollbar {
-    height: 8px; /* Scrollbar height */
+    height: 8px;
 }
 
 .table-container::-webkit-scrollbar-track {
-    background-color: #f1f1f1; /* Track color */
+    background-color: #f1f1f1;
 }
 
 .table-container::-webkit-scrollbar-thumb {
-    background-color: #888; /* Thumb color */
+    background-color: #888;
     border-radius: 4px;
 }
 
 .table-container::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* Thumb color on hover */
+    background-color: #555;
 }
 
 /* Footer Styling */
 footer {
-    background-color: #212529; /* Darker gray for footer */
-    color: #ffffff; /* Set footer text color to white */
-    padding: 20px 0; /* Padding */
+    background-color: #212529;
+    color: #ffffff;
+    padding: 20px 0;
 }
 
 footer a {
-    color: #adb5bd; /* Light gray for links */
+    color: #adb5bd;
     text-decoration: none;
 }
 
 footer a:hover {
-    color: #ffffff; /* White on hover */
+    color: #ffffff;
     text-decoration: underline;
 }
 
 /* About Page Specific Styling */
 .about-page {
-    padding: 20px; /* Add padding */
-    background-color: #f9f9f9; /* Light gray background */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .about-page h1 {
-    font-size: 3rem; /* Increase heading size */
+    font-size: 2.5rem;
     font-weight: bold;
     color: #333;
-    margin-top: 40px; /* More space above */
+    margin-top: 40px;
 }
 
 .about-page h3 {
-    font-size: 2rem; /* Increase subheading size */
-    color: #333; /* Change to black */
+    font-size: 1.75rem;
+    color: #333;
     margin-bottom: 20px;
 }
 
 .about-page p {
-    font-size: 1.25rem; /* Increase paragraph size */
-    line-height: 1.7; /* Line height */
-    color: #333; /* Change to black */
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #333;
 }
 
 .about-page .fas {
-    margin-right: 10px; /* Spacing for icons */
-    color: #007bff; /* Brand color */
+    margin-right: 10px;
+    color: #007bff;
 }
 
 .about-page hr {
-    margin: 30px 0; /* Margin for spacing */
+    margin: 30px 0;
 }
 
-/* Ensure consistent styling for About Page */
 .about-page ul {
-    list-style-type: none; /* Remove default list styling */
-    padding-left: 0; /* Remove padding */
-    color: #333; /* Set text color */
-    font-family: 'Arial', sans-serif; /* Ensure consistent font */
-    font-size: 1.25rem; /* Increase font size */
-    line-height: 1.7; /* Line height */
+    list-style-type: none;
+    padding-left: 0;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
 }
 
 .about-page ul li {
-    margin-bottom: 10px; /* Space between list items */
-    display: flex; /* Align icons and text */
-    align-items: center; /* Center items vertically */
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
 }
 
 /* Form Styling Adjustments */
 .border-container .form-control {
-    font-size: 1.1em; /* Increase font size for input fields */
-    padding: 12px; /* Increase padding for a larger touch target */
+    font-size: 1.1em;
+    padding: 12px;
 }
 
 .border-container label {
-    font-size: 1.1em; /* Increase font size for labels */
-    margin-bottom: 5px; /* Space between label and input */
+    font-size: 1.1em;
+    margin-bottom: 5px;
 }
 
 .btn {
-    font-size: 1.1em; /* Increase font size for button */
-    padding: 10px; /* Adjust button padding for better usability */
+    font-size: 1.1em;
+    padding: 10px;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .about-page h1 {
+        font-size: 2rem;
+    }
+
+    .about-page h3 {
+        font-size: 1.5rem;
+    }
+
+    .about-page p, .about-page ul li {
+        font-size: 1rem;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 16px;
+    }
+
+    .border-container {
+        padding: 5px;
+    }
+
+    #graph {
+        height: 300px;
+    }
+
+    .table-container {
+        max-height: 150px;
+    }
 }
