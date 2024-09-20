@@ -3,34 +3,35 @@ from .investment import Investment
 from django.shortcuts import render
 
 def calculate_investment(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         form = InvestmentForm(request.POST)
         if form.is_valid():
-            principal = form.cleaned_data['principal']
-            contribution = form.cleaned_data['contribution']
-            time = form.cleaned_data['time']
+            # Extract cleaned data
+            initial_investment = form.cleaned_data['initial_investment']
+            monthly_contribution = form.cleaned_data['monthly_contribution']
+            investment_years = form.cleaned_data['investment_years']
             interest_rate = form.cleaned_data['interest_rate']
 
-            investment = Investment()
-            investment._principal = principal
-            investment._contribution = contribution
-            investment._time = time
-            investment._interest_rate = interest_rate / 100  # Convert percentage to decimal
-            investment.calculate_future_values()
-
+            # Perform calculations
+            investment = Investment(
+                initial_investment=initial_investment,
+                monthly_contribution=monthly_contribution,
+                investment_years=investment_years,
+                interest_rate=interest_rate
+            )
             graph_json = investment.get_plot()
             table_data = investment.get_table_data()
 
-            return render(request, 'investment_result.html', {
+            context = {
                 'graph_json': graph_json,
-                'table_data': table_data
-            })
-        else:
-            # Form is invalid; render form with errors
-            return render(request, 'investment_form.html', {'form': form})
+                'table_data': table_data,
+                'form': form  # Optionally pass the form back for further use
+            }
+            return render(request, 'calculator/investment_result.html', context)
     else:
         form = InvestmentForm()
-    return render(request, 'investment_form.html', {'form': form})
+    return render(request, 'calculator/calculate_investment.html', {'form': form})
+
 
 def about(request):
     return render(request, 'about.html')
