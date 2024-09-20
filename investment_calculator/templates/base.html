@@ -20,6 +20,11 @@
         <div class="container-fluid">
             <!-- Brand -->
             <a class="navbar-brand" href="{% url 'calculate_investment' %}">Investment Calculator</a>
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <!-- Navbar Links -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -31,11 +36,6 @@
                     </li>
                 </ul>
             </div>
-            <!-- Toggler -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
         </div>
     </nav>
 
@@ -50,7 +50,7 @@
     <!-- Footer -->
     <footer class="bg-light py-3 mt-auto">
         <div class="container text-center">
-            <p>The information provided by this calculator is strictly for educational purposes only and should not be construed as financial advice. The results generated are purely theoretical and are meant to demonstrate the power of compound interest. They do not guarantee future performance or investment returns. Always consult with a qualified financial advisor before making any investment decisions.</p>
+            <p>The information provided by this calculator is only for educational and informational purposes and should not be construed as financial advice. The results generated are purely theoretical and are meant to demonstrate the power of compound interest. They do not guarantee future performance or investment returns. Always consult with a qualified financial advisor before making any investment decisions.</p>
         </div>
     </footer>
 
