@@ -59,7 +59,7 @@ def contact(request):
             return redirect('contact_success')
     else:
         form = ContactForm()
-    return render(request, 'calculator/contact.html', {'form': form})
+    return render(request, 'contact.html', {'form': form})
 
 def contact_success(request):
-    return render(request, 'calculator/contact_success.html')
+    return render(request, 'contact_success.html')
