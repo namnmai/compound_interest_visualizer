@@ -1,73 +1,109 @@
-/* Body Background */
+/* General Body Styling */
 body {
-    background-color: #f0f2f5; /* A very light gray for the background */
+    background-color: #f0f2f5; /* Light gray background */
+    color: #333333; /* Dark text color */
+    font-family: 'Arial', sans-serif;
 }
 
-/* Centering the Header */
-h1.text-center {
-    font-weight: bold;
-    font-size: 2.5rem;
-    color: #333333; /* Dark gray text color */
-    margin-bottom: 30px;
+/* Navbar Styling */
+.navbar {
+    background-color: #343a40 !important; /* Dark gray background */
+}
+
+.navbar-brand {
+    font-size: 1.75rem; /* Larger font size for brand */
+    font-weight: bold;  /* Bold font for emphasis */
+    color: #ffffff !important; /* White text for the brand */
+}
+
+.nav-link {
+    color: #ffffff !important; /* White text for nav links */
+}
+
+.nav-link:hover {
+    color: #adb5bd !important; /* Light gray on hover */
+}
+
+/* Toggler Styling */
+.navbar-toggler {
+    border-color: #ffffff !important; /* White border for toggler */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+/* Flexbox for Main Content */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    flex-grow: 1; /* Allow main to grow and fill the space */
+    padding: 20px;
 }
 
 /* Form Container */
 form {
-    background-color: #ffffff; /* White background */
-    padding: 40px;
+    background-color: #ffffff;
+    padding: 50px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
-    margin-bottom: 30px; /* Space between form and other elements */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* Form Labels */
-form label {
-    font-weight: bold;
-    color: #555555; /* Medium gray text color for labels */
-}
-
-/* Input Fields */
-form .form-control {
-    border: 1px solid #cccccc; /* Light gray border */
-    border-radius: 5px;
-    padding: 10px;
-}
-
-/* Submit Button */
-button[type="submit"] {
-    background-color: #007bff; /* Bootstrap primary blue color */
-    border: none;
-    font-size: 1.2rem;
-    padding: 12px 25px;
-    border-radius: 5px;
+/* Footer Styling */
+footer {
+    background-color: #212529; /* Darker gray color for footer */
     color: #ffffff; /* White text color */
-    cursor: pointer;
-    margin-top: 20px;
+    padding: 20px 0; /* Padding for top and bottom */
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+footer a {
+    color: #adb5bd; /* Light gray color for links */
+    text-decoration: none;
 }
 
-/* Error Messages */
-.alert.alert-danger {
-    font-size: 0.95rem;
-    color: #ff0000; /* Red text color for error messages */
-    margin-bottom: 20px;
+footer a:hover {
+    color: #ffffff; /* White color on hover */
+    text-decoration: underline;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 576px) {
-    h1.text-center {
-        font-size: 2rem;
-    }
+/* Border Container Styling */
+.border-container {
+    border: 2px solid #000000; /* Wider black border */
+    border-radius: 5px; /* Slightly rounded corners */
+    padding: 10px; /* Padding to create space inside the border */
+    background-color: #ffffff; /* Ensure the background is white */
+    box-sizing: border-box; /* Include padding and border in the element's total width/height */
+    overflow: hidden; /* Prevent content from overflowing the border */
+}
 
-    form {
-        padding: 30px;
-    }
+/* Table Container Styling (for horizontal scrolling) */
+.table-container {
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    width: 100%;
+}
 
-    button[type="submit"] {
-        font-size: 1rem;
-        padding: 10px 20px;
-    }
+/* Table Styles */
+.table td, .table th {
+    font-size: 0.9em;
+    padding: 0.5rem;
+    white-space: nowrap;
+}
+
+/* Custom scrollbar styles for WebKit browsers */
+.table-container::-webkit-scrollbar {
+    height: 8px;  /* Adjust the height of the scrollbar */
+}
+.table-container::-webkit-scrollbar-track {
+    background-color: #f1f1f1;  /* Scrollbar track color */
+}
+.table-container::-webkit-scrollbar-thumb {
+    background-color: #888;  /* Scrollbar thumb color */
+    border-radius: 4px;
+}
+.table-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555;  /* Scrollbar thumb color on hover */
 }
