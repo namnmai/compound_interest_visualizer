@@ -203,6 +203,19 @@ footer a:hover {
     padding: 10px;
 }
 
+/* Ensure the LaTeX content is responsive */
+.math-content {
+    overflow-x: auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.math-content p {
+    white-space: nowrap; /* Prevent line breaking */
+    font-size: 1.1rem; /* Adjust font size */
+}
+
 /* Media Query for Mobile Devices */
 @media (max-width: 768px) {
     .container {
@@ -219,5 +232,14 @@ footer a:hover {
 
     .table-container {
         max-height: 150px;
+    }
+
+    .math-content {
+        font-size: 0.9rem; /* Adjust font size for smaller screens */
+    }
+
+    .math-content p {
+        white-space: normal; /* Allow line breaking for very small screens */
+        overflow-x: auto;
     }
 }
