@@ -27,10 +27,10 @@ def calculate_investment(request):
                 'table_data': table_data,
                 'form': form  # Optional: Pass the form back for further use
             }
-            return render(request, 'calculator/investment_result.html', context)
+            return render(request, 'investment_result.html', context)
     else:
         form = InvestmentForm()
-    return render(request, 'calculator/investment_form.html', {'form': form})
+    return render(request, 'investment_form.html', {'form': form})
 
 
 def about(request):
