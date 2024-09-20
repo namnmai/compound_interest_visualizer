@@ -4,99 +4,99 @@
 {% block title %}Compound Interest Calculator{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <div class="outer-container px-0">
-        <div class="row gx-4 gy-4">
-            
-            <!-- Left Column: Plot and Table -->
-            <div class="col-lg-9 d-flex flex-column">
-                {% if graph_json %}
-                <!-- Plot Section -->
-                <div class="border-container flex-grow-1 mb-4">
-                    <div id="graph" style="height: 100%;"></div>
-                </div>
+<div class="container mt-5" style="max-width: 95%;">
+    <div class="row d-flex align-items-stretch">  <!-- Flexbox row to ensure equal height -->
 
-                <!-- Table Section -->
-                <div class="border-container">
-                    <h3 class="text-center">Detailed Values</h3>
-                    <div class="text-center mb-0">
-                        {% if form.cleaned_data.inflation_rate %}
-                            <p class="text-muted mb-0">Inflation Rate: {{ form.cleaned_data.inflation_rate|floatformat:2 }}%</p>
-                        {% else %}
-                            <p class="text-muted mb-0">Inflation Rate: Not provided</p>
-                        {% endif %}
-                    </div>
-                    <div class="table-container">
-                        <table class="table table-striped mt-2">
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    {% for row in table_data %}
-                                        <th class="text-center">Year {{ row.year }}</th>
-                                    {% endfor %}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>Future Value</th>
-                                    {% for row in table_data %}
-                                        <td class="text-right">${{ row.future_value|floatformat:2|intcomma }}</td>
-                                    {% endfor %}
-                                </tr>
-                                <tr>
-                                    <th>Total Contribution</th>
-                                    {% for row in table_data %}
-                                        <td class="text-right">${{ row.total_contribution|floatformat:2|intcomma }}</td>
-                                    {% endfor %}
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                {% else %}
-                    <p class="text-center mt-5">Enter values on the right to see the plot and table.</p>
-                {% endif %}
+        <!-- Left Column: Plot and Table -->
+        <div class="col-lg-8 col-md-7 d-flex flex-column">  <!-- Flexbox column to stretch height -->
+            {% if graph_json %}
+            <!-- Plot Section -->
+            <div class="border-container mb-4 flex-grow-1" style="min-height: 400px;">
+                <div id="graph" style="height: 100%; width: 100%;"></div>
             </div>
 
-            <!-- Right Column: Form -->
-            <div class="col-lg-3 d-flex flex-column">
-                <div class="border-container h-100 p-4 d-flex flex-column">
-                    <h3 class="text-center mb-3">Adjust Parameters</h3>
-                    <form method="POST" action="{% url 'calculate_investment' %}" class="flex-grow-1 d-flex flex-column">
-                        {% csrf_token %}
-                        <div class="mb-3">
-                            {{ form.principal.label_tag }}
-                            {{ form.principal }}
-                            <small class="text-muted">Example: 1000</small>
-                        </div>
-                        <div class="mb-3">
-                            {{ form.contribution.label_tag }}
-                            {{ form.contribution }}
-                            <small class="text-muted">Example: 100</small>
-                        </div>
-                        <div class="mb-3">
-                            {{ form.time.label_tag }}
-                            {{ form.time }}
-                            <small class="text-muted">Example: 5</small>
-                        </div>
-                        <div class="mb-3">
-                            {{ form.interest_rate.label_tag }}
-                            {{ form.interest_rate }}
-                            <small class="text-muted">Example: 5.5</small>
-                        </div>
-                        <div class="mb-3">
-                            {{ form.inflation_rate.label_tag }}
-                            {{ form.inflation_rate }}
-                            <small class="text-muted">Example: 2.0 (optional)</small>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block mt-auto">
+            <!-- Table Section -->
+            <div class="border-container flex-grow-1">
+                <h3 class="text-center">Detailed Values</h3>
+                <div class="text-center mb-0">
+                    {% if form.cleaned_data.inflation_rate %}
+                        <p class="text-muted mb-0">Inflation Rate: {{ form.cleaned_data.inflation_rate|floatformat:2 }}%</p>
+                    {% else %}
+                        <p class="text-muted mb-0">Inflation Rate: Not provided</p>
+                    {% endif %}
+                </div>
+                <div class="table-container">
+                    <table class="table table-striped mt-2">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                {% for row in table_data %}
+                                    <th class="text-center">Year {{ row.year }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Future Value</th>
+                                {% for row in table_data %}
+                                    <td class="text-right">${{ row.future_value|floatformat:2|intcomma }}</td>
+                                {% endfor %}
+                            </tr>
+                            <tr>
+                                <th>Total Contribution</th>
+                                {% for row in table_data %}
+                                    <td class="text-right">${{ row.total_contribution|floatformat:2|intcomma }}</td>
+                                {% endfor %}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% else %}
+                <p class="text-center mt-5">Enter values on the right to see the plot and table.</p>
+            {% endif %}
+        </div>
+
+        <!-- Right Column: Form -->
+        <div class="col-lg-4 col-md-5 d-flex flex-column">  <!-- Flexbox column to stretch height -->
+            <div class="border-container h-100 p-4 d-flex flex-column">
+                <h3 class="text-center mb-3">Adjust Parameters</h3>
+                <form method="POST" action="{% url 'calculate_investment' %}" class="flex-grow-1 d-flex flex-column">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.principal.label_tag }}
+                        {{ form.principal }}
+                        <small class="text-muted">Example: 1000</small>
+                    </div>
+                    <div class="mb-3">
+                        {{ form.contribution.label_tag }}
+                        {{ form.contribution }}
+                        <small class="text-muted">Example: 100</small>
+                    </div>
+                    <div class="mb-3">
+                        {{ form.time.label_tag }}
+                        {{ form.time }}
+                        <small class="text-muted">Example: 5</small>
+                    </div>
+                    <div class="mb-3">
+                        {{ form.interest_rate.label_tag }}
+                        {{ form.interest_rate }}
+                        <small class="text-muted">Example: 5.5</small>
+                    </div>
+                    <div class="mb-3">
+                        {{ form.inflation_rate.label_tag }}
+                        {{ form.inflation_rate }}
+                        <small class="text-muted">Example: 2.0 (optional)</small>
+                    </div>
+                    <div class="d-flex justify-content-center mt-auto">
+                        <button type="submit" class="btn btn-primary">
                             <i class="fas fa-calculator"></i>&nbsp;Calculate
                         </button>
-                    </form>                                       
-                </div>
+                    </div>
+                </form>                                       
             </div>
-                            
         </div>
+
     </div>
 </div>
 

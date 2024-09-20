@@ -5,6 +5,49 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
+/* Ensure Container takes full width */
+.container {
+    max-width: 95%;
+    margin: auto;
+}
+
+/* Narrower Container for About and FAQ Pages */
+.about-page-container, .faq-page-container {
+    max-width: 60%; /* Narrower width for About and FAQ pages */
+    margin: auto;
+}
+
+/* Add background color and increase padding for About page container */
+.about-page-container {
+    background-color: #ffffff; /* White background color */
+    padding: 80px 30px; /* Further increased padding for top and bottom */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow for depth */
+    margin-top: 60px; /* Increased margin on top */
+    margin-bottom: 60px; /* Increased margin on bottom */
+}
+
+/* Add background color to FAQ page container */
+.faq-page-container {
+    background-color: #ffffff; /* White background color */
+    padding: 80px 30px; /* Further increased padding for top and bottom */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow for depth */
+    margin-top: 60px; /* Increased margin on top */
+    margin-bottom: 60px; /* Increased margin on bottom */
+}
+
+/* Match the LaTeX content background with FAQ container */
+.faq-page .math-content, .math-content {
+    background-color: #ffffff; /* Match the background color */
+    border-radius: 8px; /* Match the border radius */
+    padding: 20px; /* Match the padding */
+    margin-bottom: 20px;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+}
+
 /* Navbar Styling */
 .navbar {
     background-color: #212529 !important;
@@ -46,9 +89,14 @@ main {
     padding: 20px;
 }
 
-/* Outer Container */
-.outer-container {
-    padding: 0;
+/* Flexbox to equalize column heights */
+.row.d-flex {
+    display: flex;
+}
+
+.col-lg-8, .col-lg-4 {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Border Container Styling */
@@ -57,40 +105,28 @@ main {
     border-radius: 5px;
     background-color: #ffffff;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 16px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
+/* Input Field Adjustments */
+.form-control {
+    height: 50px; /* Increase height */
+    font-size: 1.1rem; /* Adjust font size */
+    padding: 12px; /* Add padding for better usability */
+}
+
 /* Plot Section */
-.border-container.graph {
-    border: 2px solid #000000;
-    padding: 10px;
-}
-
-/* Plot and Table Container */
-.row {
-    display: flex;
-    align-items: stretch;
-}
-
-.col-lg-9 {
-    flex-grow: 1;
-}
-
-.col-lg-3 {
-    max-width: 300px; /* Ensure input box stays the same width */
-}
-
 #graph {
     width: 100%;
-    flex-grow: 1;
+    height: 100%;
 }
 
 /* Table Container Styling */
 .table-container {
-    max-height: 200px;
+    max-height: 300px;
     overflow-y: auto;
     width: 100%;
 }
@@ -138,26 +174,20 @@ footer a:hover {
 }
 
 /* About Page Specific Styling */
-.about-page {
-    padding: 20px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.about-page h1 {
+.about-page h1, .faq-page h1 {
     font-size: 2.5rem;
     font-weight: bold;
     color: #333;
     margin-top: 40px;
 }
 
-.about-page h3 {
+.about-page h3, .faq-page h3 {
     font-size: 1.75rem;
     color: #333;
     margin-bottom: 20px;
 }
 
-.about-page p {
+.about-page p, .faq-page p {
     font-size: 1.1rem;
     line-height: 1.7;
     color: #333;
@@ -200,24 +230,12 @@ footer a:hover {
 
 .btn {
     font-size: 1.1em;
-    padding: 10px;
+    padding: 10px 20px; /* Adjust padding if needed */
 }
 
-/* Ensure the LaTeX content is responsive */
-.math-content {
-    overflow-x: auto;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-
-.math-content p {
-    white-space: nowrap; /* Prevent line breaking */
-    font-size: 1.1rem; /* Adjust font size */
-    margin: 0; /* Remove default margin */
+/* Center the button */
+.d-flex.justify-content-center {
+    justify-content: center;
 }
 
 /* Media Query for Mobile Devices */
@@ -226,7 +244,7 @@ footer a:hover {
         padding: 15px;
     }
 
-    .col-lg-9, .col-lg-3 {
+    .col-lg-8, .col-lg-4 {
         max-width: 100%;  /* Full width on mobile */
     }
 
@@ -236,6 +254,11 @@ footer a:hover {
 
     .table-container {
         max-height: 150px;
+    }
+
+    .form-control {
+        height: 50px; /* Adjust height for mobile */
+        font-size: 1rem; /* Slightly smaller font size */
     }
 
     .math-content p {

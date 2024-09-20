@@ -2,7 +2,7 @@ from django import forms
 
 class InvestmentForm(forms.Form):
     principal = forms.DecimalField(
-        label="Initial Investment ($)",
+        label="Initial Investment (USD)",
         min_value=0,
         decimal_places=2,
         max_digits=15,
@@ -13,7 +13,7 @@ class InvestmentForm(forms.Form):
         })
     )
     contribution = forms.DecimalField(
-        label="Monthly Contribution ($)",
+        label="Monthly Contribution (USD)",
         min_value=0,
         decimal_places=2,
         max_digits=15,
