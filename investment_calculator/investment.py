@@ -19,12 +19,7 @@ class Investment:
         if self._interest_rate == 0:
             self._compound_interest = self._principal + 12 * self._contribution * self._time_plot
         else:
-            self._compound_interest = (
-                self._principal * (1 + self._interest_rate) ** self._time_plot
-            ) + (
-                (12 * self._contribution / self._interest_rate)
-                * ((1 + self._interest_rate) ** self._time_plot - 1)
-            )
+            self._compound_interest = (self._principal * (1 + self._interest_rate) ** self._time_plot) + ((12 * self._contribution / self._interest_rate) * ((1 + self._interest_rate) ** self._time_plot - 1))
         self._total_contribution = self._principal + self._time_plot * (12 * self._contribution)
 
     def get_table_data(self):
