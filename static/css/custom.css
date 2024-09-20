@@ -238,12 +238,13 @@ footer a:hover {
         max-height: 150px;
     }
 
-    .math-content {
-        font-size: 0.9rem; /* Adjust font size for smaller screens */
-    }
-
     .math-content p {
         white-space: normal; /* Allow line breaking for very small screens */
         overflow-x: auto;
+    }
+
+    .math-content {
+        font-size: 0.85em; /* Adjust the size as needed */
+        overflow-x: auto; /* Allow horizontal scrolling if necessary */
     }
 }
