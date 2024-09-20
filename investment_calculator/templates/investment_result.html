@@ -5,57 +5,95 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Results</h1>
-    
-    <!-- Plot Section -->
-    <div class="row">
-        <div class="col-12">
-            <!-- Outer div to handle the border -->
-            <div class="border-container">
-                <div id="graph"></div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Table Section -->
-    <div class="row mt-4">
-        <div class="col-12">
-            <h3 class="text-center">Detailed Values</h3>
-            <!-- Outer div to handle the border -->
-            <div class="border-container">
-                <div class="table-container">
-                    <table class="table table-striped mt-2">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                {% for row in table_data %}
-                                    <th class="text-center">Year {{ row.year }}</th>
-                                {% endfor %}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th>Future Value</th>
-                                {% for row in table_data %}
-                                    <td class="text-right">${{ row.future_value|floatformat:2|intcomma }}</td>
-                                {% endfor %}
-                            </tr>
-                            <tr>
-                                <th>Total Contribution</th>
-                                {% for row in table_data %}
-                                    <td class="text-right">${{ row.total_contribution|floatformat:2|intcomma }}</td>
-                                {% endfor %}
-                            </tr>
-                        </tbody>
-                    </table>
+    <!-- Outer Box without Border -->
+    <div class="outer-container" style="margin-left: -500px; margin-right: -500px; padding: 0;">
+        <div class="row">
+
+            <!-- Left Column: Plot and Table -->
+            <div class="col-md-8 d-flex flex-column">
+
+                <!-- Plot Section -->
+                <div class="border-container flex-grow-1 mb-4" style="height: auto;">
+                    <div id="graph" style="height: 100%;"></div>
+                </div>
+
+                <!-- Table Section -->
+                <div class="border-container" style="flex-grow: 0;">
+                    <h3 class="text-center">Detailed Values</h3>
+                    <div class="text-center mb-0"> <!-- Set to mb-0 for no bottom margin -->
+                        {% if form.cleaned_data.inflation_rate %}
+                            <p class="text-muted">Inflation Rate: {{ form.cleaned_data.inflation_rate|floatformat:2 }}%</p>
+                        {% else %}
+                            <p class="text-muted">Inflation Rate: Not provided</p>
+                        {% endif %}
+                    </div>
+                    <div class="table-container">
+                        <table class="table table-striped mt-2">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    {% for row in table_data %}
+                                        <th class="text-center">Year {{ row.year }}</th>
+                                    {% endfor %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Future Value</th>
+                                    {% for row in table_data %}
+                                        <td class="text-right">${{ row.future_value|floatformat:2|intcomma }}</td>
+                                    {% endfor %}
+                                </tr>
+                                <tr>
+                                    <th>Total Contribution</th>
+                                    {% for row in table_data %}
+                                        <td class="text-right">${{ row.total_contribution|floatformat:2|intcomma }}</td>
+                                    {% endfor %}
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Back Button -->
-    <div class="text-center mt-4">
-        <a href="{% url 'calculate_investment' %}" class="btn btn-secondary">Try Again</a>
+            <!-- Right Column: Form -->
+            <div class="col-md-4 d-flex flex-column">
+                <div class="border-container h-100 p-4 d-flex flex-column">
+                    <h3 class="text-center mb-3">Adjust Inputs</h3>
+                    <form method="POST" action="{% url 'calculate_investment' %}" class="flex-grow-1 d-flex flex-column">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            {{ form.principal.label_tag }}
+                            {{ form.principal }}
+                            <small class="text-muted">Example: 1000</small>
+                        </div>
+                        <div class="mb-3">
+                            {{ form.contribution.label_tag }}
+                            {{ form.contribution }}
+                            <small class="text-muted">Example: 100</small>
+                        </div>
+                        <div class="mb-3">
+                            {{ form.time.label_tag }}
+                            {{ form.time }}
+                            <small class="text-muted">Example: 5</small>
+                        </div>
+                        <div class="mb-3">
+                            {{ form.interest_rate.label_tag }}
+                            {{ form.interest_rate }}
+                            <small class="text-muted">Example: 5.5</small>
+                        </div>
+                        <div class="mb-3">
+                            {{ form.inflation_rate.label_tag }}
+                            {{ form.inflation_rate }}
+                            <small class="text-muted">Example: 2.0 (optional)</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block mt-auto">Recalculate</button>
+                    </form>                                       
+                </div>
+            </div>
+                            
+        </div>
     </div>
 </div>
 
@@ -65,6 +103,10 @@
     var graph = JSON.parse('{{ graph_json|escapejs }}');
     var config = {responsive: true};
     Plotly.newPlot('graph', graph.data, graph.layout, config);
+    
+    window.onresize = function() {
+        Plotly.Plots.resize('graph');
+    };
 </script>
 
 {% endblock %}

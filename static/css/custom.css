@@ -7,33 +7,27 @@ body {
 
 /* Navbar Styling */
 .navbar {
-    background-color: #343a40 !important; /* Dark gray background */
-    width: 100%; /* Ensure the navbar takes up the full width */
-    overflow: hidden; /* Prevent any content from overflowing */
+    background-color: #212529 !important; /* Darker gray to match footer */
+    width: 100%; /* Full width */
 }
 
-/* Adjust padding and margins for mobile */
-@media (max-width: 576px) {
-    .navbar .navbar-brand {
-        padding-left: 10px;
-    }
-    .navbar .navbar-nav {
-        padding-right: 10px;
-    }
+.navbar-collapse {
+    justify-content: flex-end; /* Align the links to the right */
 }
 
-.navbar-brand {
-    font-size: 1.75rem; /* Larger font size for brand */
-    font-weight: bold;  /* Bold font for emphasis */
-    color: #ffffff !important; /* White text for the brand */
+.navbar-nav .nav-item {
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
-.nav-link {
-    color: #ffffff !important; /* White text for nav links */
+.navbar-nav .nav-link {
+    font-size: 18px; /* Font size for navbar links */
+    color: #ffffff; /* White text color for links */
 }
 
-.nav-link:hover {
-    color: #adb5bd !important; /* Light gray on hover */
+/* Change navbar link color on hover */
+.navbar-nav .nav-link:hover {
+    color: #adb5bd; /* Light gray on hover */
 }
 
 /* Toggler Styling */
@@ -54,68 +48,158 @@ main {
     padding: 20px;
 }
 
-/* Form Container */
-form {
-    background-color: #ffffff;
-    padding: 50px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Footer Styling */
-footer {
-    background-color: #212529; /* Darker gray color for footer */
-    color: #ffffff; /* White text color */
-    padding: 20px 0; /* Padding for top and bottom */
-}
-
-footer a {
-    color: #adb5bd; /* Light gray color for links */
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: #ffffff; /* White color on hover */
-    text-decoration: underline;
+/* Outer Container */
+.outer-container {
+    padding: 0; /* Remove padding */
 }
 
 /* Border Container Styling */
 .border-container {
-    border: 2px solid #000000; /* Wider black border */
+    border: 2px solid #000000; /* Inner border for each section */
     border-radius: 5px; /* Slightly rounded corners */
-    padding: 10px; /* Padding to create space inside the border */
     background-color: #ffffff; /* Ensure the background is white */
-    box-sizing: border-box; /* Include padding and border in the element's total width/height */
-    overflow: hidden; /* Prevent content from overflowing the border */
+    box-sizing: border-box; /* Include padding and border in total width/height */
+    padding: 10px; /* Inner padding */
+    overflow: hidden; /* Prevent content overflow */
+    display: flex;
+    flex-direction: column;
 }
 
-/* Table Container Styling (for horizontal scrolling) */
+/* Plot Section */
+.border-container.graph {
+    border: 2px solid #000000; /* Border for graph container */
+    padding: 10px; /* Inner padding */
+}
+
+/* Plot and Table Container */
+.row {
+    display: flex;
+    align-items: stretch;
+}
+
+.col-md-8, .col-md-4 {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Plot Settings */
+#graph {
+    width: 100%; /* Full width */
+    flex-grow: 1; /* Allows the plot container to take up most of the space */
+}
+
+/* Table Container Styling */
 .table-container {
-    overflow-x: auto; /* Enable horizontal scrolling if needed */
-    width: 100%;
+    max-height: 200px; /* Adjust as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    width: 100%; /* Full width */
 }
 
 /* Table Styles */
 .table td, .table th {
-    font-size: 0.9em;
-    padding: 0.5rem;
-    white-space: nowrap;
+    font-size: 1.1em; /* Increase font size for table cells */
+    padding: 0.5rem; /* Padding */
+    white-space: nowrap; /* Prevent wrapping */
 }
 
-/* Custom scrollbar styles for WebKit browsers */
+/* Custom Scrollbar Styles */
 .table-container::-webkit-scrollbar {
-    height: 8px;  /* Adjust the height of the scrollbar */
+    height: 8px; /* Scrollbar height */
 }
+
 .table-container::-webkit-scrollbar-track {
-    background-color: #f1f1f1;  /* Scrollbar track color */
+    background-color: #f1f1f1; /* Track color */
 }
+
 .table-container::-webkit-scrollbar-thumb {
-    background-color: #888;  /* Scrollbar thumb color */
+    background-color: #888; /* Thumb color */
     border-radius: 4px;
 }
+
 .table-container::-webkit-scrollbar-thumb:hover {
-    background-color: #555;  /* Scrollbar thumb color on hover */
+    background-color: #555; /* Thumb color on hover */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #212529; /* Darker gray for footer */
+    color: #ffffff; /* Set footer text color to white */
+    padding: 20px 0; /* Padding */
+}
+
+footer a {
+    color: #adb5bd; /* Light gray for links */
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ffffff; /* White on hover */
+    text-decoration: underline;
+}
+
+/* About Page Specific Styling */
+.about-page {
+    padding: 20px; /* Add padding */
+    background-color: #f9f9f9; /* Light gray background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.about-page h1 {
+    font-size: 3rem; /* Increase heading size */
+    font-weight: bold;
+    color: #333;
+    margin-top: 40px; /* More space above */
+}
+
+.about-page h3 {
+    font-size: 2rem; /* Increase subheading size */
+    color: #333; /* Change to black */
+    margin-bottom: 20px;
+}
+
+.about-page p {
+    font-size: 1.25rem; /* Increase paragraph size */
+    line-height: 1.7; /* Line height */
+    color: #333; /* Change to black */
+}
+
+.about-page .fas {
+    margin-right: 10px; /* Spacing for icons */
+    color: #007bff; /* Brand color */
+}
+
+.about-page hr {
+    margin: 30px 0; /* Margin for spacing */
+}
+
+/* Ensure consistent styling for About Page */
+.about-page ul {
+    list-style-type: none; /* Remove default list styling */
+    padding-left: 0; /* Remove padding */
+    color: #333; /* Set text color */
+    font-family: 'Arial', sans-serif; /* Ensure consistent font */
+    font-size: 1.25rem; /* Increase font size */
+    line-height: 1.7; /* Line height */
+}
+
+.about-page ul li {
+    margin-bottom: 10px; /* Space between list items */
+    display: flex; /* Align icons and text */
+    align-items: center; /* Center items vertically */
+}
+
+/* Form Styling Adjustments */
+.border-container .form-control {
+    font-size: 1.1em; /* Increase font size for input fields */
+    padding: 12px; /* Increase padding for a larger touch target */
+}
+
+.border-container label {
+    font-size: 1.1em; /* Increase font size for labels */
+    margin-bottom: 5px; /* Space between label and input */
+}
+
+.btn {
+    font-size: 1.1em; /* Increase font size for button */
+    padding: 10px; /* Adjust button padding for better usability */
 }

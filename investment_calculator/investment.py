@@ -2,24 +2,36 @@ import numpy as np
 import plotly.graph_objs as go
 import json
 import plotly
+from decimal import Decimal
 
 class Investment:
-    def __init__(self):
-        self._principal = None
-        self._contribution = None
-        self._time = None
-        self._interest_rate = None
-        self._time_plot = None
-        self._compound_interest = None
-        self._total_contribution = None
+    def __init__(self, principal, contribution, time, interest_rate, inflation_rate=None):
+        self._principal = Decimal(principal)
+        self._contribution = Decimal(contribution)
+        self._time = time
+        self._interest_rate = Decimal(interest_rate) / 100  # Assuming the rate is input as a percentage
+        self._inflation_rate = Decimal(inflation_rate) / 100 if inflation_rate else None
+        self._time_plot = np.arange(self._time + 1)
 
     def calculate_future_values(self):
         """Function to calculate future values and total contributions"""
-        self._time_plot = np.arange(self._time + 1)
-        if self._interest_rate == 0:
-            self._compound_interest = self._principal + 12 * self._contribution * self._time_plot
+        # Calculate future value without inflation adjustment
+        if self._interest_rate > 0:
+            future_value = (self._principal * (1 + self._interest_rate) ** self._time_plot) + \
+                           ((12 * self._contribution / self._interest_rate) * 
+                           ((1 + self._interest_rate) ** self._time_plot - 1))
         else:
-            self._compound_interest = (self._principal * (1 + self._interest_rate) ** self._time_plot) + ((12 * self._contribution / self._interest_rate) * ((1 + self._interest_rate) ** self._time_plot - 1))
+            # Handle zero interest rate case
+            future_value = self._principal + 12 * self._contribution * self._time_plot
+
+        # Adjust for inflation
+        if self._inflation_rate:
+            inflation_adjusted_value = future_value / ((1 + self._inflation_rate) ** self._time_plot)
+        else:
+            inflation_adjusted_value = future_value
+
+        # Save results
+        self._compound_interest = inflation_adjusted_value
         self._total_contribution = self._principal + self._time_plot * (12 * self._contribution)
 
     def get_table_data(self):
@@ -141,3 +153,5 @@ class Investment:
         # Convert the plot to JSON format for rendering in the template
         graph_json = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
         return graph_json
+    
+

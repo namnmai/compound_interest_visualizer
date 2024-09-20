@@ -7,4 +7,5 @@ urlpatterns = [
     # Update the path for the 'about' page if necessary
     path('about/', views.about, name='about'),
     # Add other URL patterns here if necessary
+    path('faq/', views.faq, name='faq'),
 ]

@@ -45,3 +45,15 @@ class InvestmentForm(forms.Form):
             'required': 'required'
         })
     )
+    inflation_rate = forms.DecimalField(
+        label="Inflation Rate (%)",
+        min_value=0,
+        max_value=100,
+        decimal_places=2,
+        max_digits=5,
+        required=False,  # Make this field optional
+        widget=forms.NumberInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter inflation rate (optional)',
+        })
+    )
