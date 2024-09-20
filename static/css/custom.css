@@ -8,6 +8,18 @@ body {
 /* Navbar Styling */
 .navbar {
     background-color: #343a40 !important; /* Dark gray background */
+    width: 100%; /* Ensure the navbar takes up the full width */
+    overflow: hidden; /* Prevent any content from overflowing */
+}
+
+/* Adjust padding and margins for mobile */
+@media (max-width: 576px) {
+    .navbar .navbar-brand {
+        padding-left: 10px;
+    }
+    .navbar .navbar-nav {
+        padding-right: 10px;
+    }
 }
 
 .navbar-brand {
