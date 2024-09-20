@@ -1,18 +1,16 @@
 {% extends 'base.html' %}
 {% load humanize %}
 
-{% block title %}Compound Interest Results{% endblock %}
+{% block title %}Compound Interest Calculator{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
-
-    <!-- Outer Box without Border -->
     <div class="outer-container" style="margin-left: -500px; margin-right: -500px; padding: 0;">
         <div class="row">
 
             <!-- Left Column: Plot and Table -->
             <div class="col-md-8 d-flex flex-column">
-
+                {% if graph_json %}
                 <!-- Plot Section -->
                 <div class="border-container flex-grow-1 mb-4" style="height: auto;">
                     <div id="graph" style="height: 100%;"></div>
@@ -21,7 +19,7 @@
                 <!-- Table Section -->
                 <div class="border-container" style="flex-grow: 0;">
                     <h3 class="text-center">Detailed Values</h3>
-                    <div class="text-center mb-0"> <!-- Set to mb-0 for no bottom margin -->
+                    <div class="text-center mb-0">
                         {% if form.cleaned_data.inflation_rate %}
                             <p class="text-muted mb-0">Inflation Rate: {{ form.cleaned_data.inflation_rate|floatformat:2 }}%</p>
                         {% else %}
@@ -55,12 +53,15 @@
                         </table>
                     </div>
                 </div>
+                {% else %}
+                    <p class="text-center mt-5">Enter values on the right to see the plot and table.</p>
+                {% endif %}
             </div>
 
             <!-- Right Column: Form -->
             <div class="col-md-4 d-flex flex-column">
                 <div class="border-container h-100 p-4 d-flex flex-column">
-                    <h3 class="text-center mb-3">Adjust Inputs</h3>
+                    <h3 class="text-center mb-3">Adjust Parameters</h3>
                     <form method="POST" action="{% url 'calculate_investment' %}" class="flex-grow-1 d-flex flex-column">
                         {% csrf_token %}
                         <div class="mb-3">
@@ -88,7 +89,9 @@
                             {{ form.inflation_rate }}
                             <small class="text-muted">Example: 2.0 (optional)</small>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block mt-auto">Recalculate</button>
+                        <button type="submit" class="btn btn-primary btn-block mt-auto">
+                            <i class="fas fa-calculator"></i>&nbsp;Calculate
+                        </button>
                     </form>                                       
                 </div>
             </div>
@@ -99,6 +102,7 @@
 
 <!-- Include Plotly.js via CDN -->
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% if graph_json %}
 <script>
     var graph = JSON.parse('{{ graph_json|escapejs }}');
     var config = {responsive: true};
@@ -108,5 +112,6 @@
         Plotly.Plots.resize('graph');
     };
 </script>
+{% endif %}
 
 {% endblock %}
