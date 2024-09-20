@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from .forms import InvestmentForm
+from .forms import InvestmentForm, ContactForm
 from .investment import Investment
+from django.shortcuts import render, redirect
+from django.core.mail import send_mail
+from django.conf import settings
 
 def calculate_investment(request):
     if request.method == "POST":
@@ -34,3 +36,30 @@ def calculate_investment(request):
 
 def about(request):
     return render(request, 'about.html')
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Extract cleaned data
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+
+            # Compose email
+            subject = f'New Contact Form Submission from {name}'
+            full_message = f'Name: {name}\nEmail: {email}\n\nMessage:\n{message}'
+            from_email = settings.DEFAULT_FROM_EMAIL
+            recipient_list = [settings.CONTACT_EMAIL]  # Define in settings.py
+
+            # Send email
+            send_mail(subject, full_message, from_email, recipient_list)
+
+            # Redirect or render a success message
+            return redirect('contact_success')
+    else:
+        form = ContactForm()
+    return render(request, 'calculator/contact.html', {'form': form})
+
+def contact_success(request):
+    return render(request, 'calculator/contact_success.html')

@@ -1,0 +1,11 @@
+{% extends 'calculator/base.html' %}
+
+{% block title %}Message Sent{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-4">Thank You!</h1>
+<p class="text-center">Your message has been sent successfully. I'll get back to you shortly.</p>
+<div class="text-center mt-4">
+    <a href="{% url 'calculate_investment' %}" class="btn btn-secondary">Back to Home</a>
+</div>
+{% endblock %}
