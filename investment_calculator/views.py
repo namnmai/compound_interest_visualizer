@@ -1,6 +1,6 @@
+from django.shortcuts import render
 from .forms import InvestmentForm
 from .investment import Investment
-from django.shortcuts import render
 
 def calculate_investment(request):
     if request.method == 'POST':
@@ -27,10 +27,10 @@ def calculate_investment(request):
                 'table_data': table_data,
                 'form': form  # Optionally pass the form back for further use
             }
-            return render(request, 'calculator/investment_result.html', context)
+            return render(request, 'investment_form.html', context)
     else:
         form = InvestmentForm()
-    return render(request, 'calculator/calculate_investment.html', {'form': form})
+    return render(request, 'investment_form.html', {'form': form})
 
 
 def about(request):
