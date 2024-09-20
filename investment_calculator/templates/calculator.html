@@ -5,19 +5,19 @@
 
 {% block content %}
 <div class="container mt-5">
-    <div class="outer-container" style="margin-left: -500px; margin-right: -500px; padding: 0;">
-        <div class="row">
-
+    <div class="outer-container px-0">
+        <div class="row gx-4 gy-4">
+            
             <!-- Left Column: Plot and Table -->
-            <div class="col-md-8 d-flex flex-column">
+            <div class="col-lg-9 d-flex flex-column">
                 {% if graph_json %}
                 <!-- Plot Section -->
-                <div class="border-container flex-grow-1 mb-4" style="height: auto;">
+                <div class="border-container flex-grow-1 mb-4">
                     <div id="graph" style="height: 100%;"></div>
                 </div>
 
                 <!-- Table Section -->
-                <div class="border-container" style="flex-grow: 0;">
+                <div class="border-container">
                     <h3 class="text-center">Detailed Values</h3>
                     <div class="text-center mb-0">
                         {% if form.cleaned_data.inflation_rate %}
@@ -59,7 +59,7 @@
             </div>
 
             <!-- Right Column: Form -->
-            <div class="col-md-4 d-flex flex-column">
+            <div class="col-lg-3 d-flex flex-column">
                 <div class="border-container h-100 p-4 d-flex flex-column">
                     <h3 class="text-center mb-3">Adjust Parameters</h3>
                     <form method="POST" action="{% url 'calculate_investment' %}" class="flex-grow-1 d-flex flex-column">
