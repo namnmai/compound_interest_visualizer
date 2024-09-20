@@ -46,6 +46,15 @@ body {
     overflow-x: auto;
 }
 
+/* Ensure LaTeX content wraps properly */
+.faq-page .math-content p, .math-content p {
+    white-space: normal; /* Allow line breaking to prevent overflow */
+    font-size: 1.1rem; /* Adjust font size */
+    margin: 0; /* Remove default margin */
+    word-wrap: break-word; /* Ensure long words break to prevent overflow */
+    overflow-x: auto; /* Add horizontal scrolling for very long content */
+}
+
 /* Navbar Styling */
 .navbar {
     background-color: #212529 !important;
@@ -266,14 +275,14 @@ footer a:hover {
         font-size: 1rem; /* Slightly smaller font size */
     }
 
-    .math-content p {
-        white-space: normal; /* Allow line breaking for very small screens */
-        overflow-x: auto;
-    }
-
     .math-content {
         font-size: 0.85em; /* Adjust the size as needed */
         padding: 15px;  /* Adjust padding for readability */
         overflow-x: auto; /* Allow horizontal scrolling if necessary */
+    }
+
+    .math-content p {
+        white-space: normal; /* Ensure LaTeX content wraps properly on mobile */
+        word-wrap: break-word; /* Prevent overflow for long expressions */
     }
 }
