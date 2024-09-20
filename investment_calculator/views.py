@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .forms import InvestmentForm
-from .investment import Investment
+from .investment import Investment  # Ensure this class exists and handles calculations
 
 def calculate_investment(request):
     if request.method == "POST":
