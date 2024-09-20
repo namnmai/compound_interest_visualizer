@@ -8,6 +8,8 @@
         <div class="col-md-8 offset-md-2">
             <h1 class="text-center mb-4">Frequently Asked Questions</h1>
 
+            <br>
+
             <h3 class="mb-3">What is compounding?</h3>
             <p class="text-justify">
                 Compounding refers to the process where the value of an investment increases over time due to earnings on both the initial principal and the accumulated interest from previous periods. Essentially, you earn "interest on interest."
@@ -15,7 +17,7 @@
 
             <h3 class="mb-3">How does this calculator work?</h3>
             <p class="text-justify">
-                This calculator estimates the future value of your investments based on the initial amount, monthly contributions, investment duration, annual interest rate, and compounding frequency.
+                This calculator estimates the future value of your investments based on the initial amount, monthly contributions, investment duration, annual interest rate, and inflation rate.
             </p>
 
             <h3 class="mb-3">What is the future value?</h3>
@@ -28,32 +30,85 @@
                 Total contribution refers to the total amount of money you have invested over time, including your initial investment and any additional contributions made throughout the investment period.
             </p>
 
-            <h3 class="mb-3">What is the formula used for calculations?</h3>
+            <h3 class="mb-3">What is inflation?</h3>
+            <p class="text-justify">
+                Inflation is the rate at which the general level of prices for goods and services rises, eroding purchasing power. It affects the real return on your investments.
+            </p>
+
+            <h3 class="mb-3">How does inflation affect investments?</h3>
+            <p class="text-justify">
+                Inflation can significantly impact the real return on investments. If your investment returns are lower than the inflation rate, the purchasing power of your money decreases. It's essential to consider inflation when calculating future values.
+            </p>
+
+            <h3 class="mb-3">What is the formula used for calculations?</h3>    
+            <p class="text-justify">
+                The calculations follow the formulas below:
+            </p>
+
             <div class="math-content">
-                <p class="text-justify">
-                    The calculations follow the formula below:
+                <p align="center"> 
+                    $$P(1+r)^t \hspace{0.5cm} (1)$$ 
                 </p>
-                <p align="center"> $$P(1+r)^t \hspace{0.5cm} (1)$$ </p>
-                <p class="text-justify">
-                    The monthly contributions \( C \) (times 12) are compounded from \( t - 1 \) to \( 0 \) years:
+            </div>
+
+            <p class="text-justify">
+                The monthly contributions \( C \) (times 12) are compounded from \( t - 1 \) to \( 0 \) years:
+            </p>
+
+            <div class="math-content">
+                <p align="center"> 
+                    $$12C \cdot (1+r)^{t-1} + 12C \cdot (1+r)^{t-2} + \cdots + 12C \cdot (1+r)^0$$ 
                 </p>
-                <p align="center"> $$12C \cdot (1+r)^{t-1} + 12C \cdot (1+r)^{t-2} + \cdots + 12C \cdot (1+r)^0$$ </p>
-                <p class="text-justify">
-                    The sum of that series is:
+            </div>
+
+            <p class="text-justify">
+                The sum of that series is:
+            </p>
+
+            <div class="math-content">
+                <p align="center"> 
+                    $$12C \cdot \dfrac{(1+r)^t-1}{(1+r)-1}$$ 
                 </p>
-                <p align="center"> $$12C \cdot \dfrac{(1+r)^t-1}{(1+r)-1}$$ </p>
-                <p class="text-justify">
-                    Then simplify:
+            </div>
+
+            <p class="text-justify">
+                Then simplify:
+            </p>
+
+            <div class="math-content">
+                <p align="center"> 
+                    $$\dfrac{12C}{r} \left[(1+r)^t-1\right] \hspace{0.5cm} (2)$$ 
                 </p>
-                <p align="center"> $$\dfrac{12C}{r} \left[(1+r)^t-1\right] \hspace{0.5cm} (2)$$ </p>
-                <p class="text-justify">
-                    Put together \( (1) \) and \( (2) \):
+            </div>
+
+            <p class="text-justify">
+                Put together \( (1) \) and \( (2) \):
+            </p>
+
+            <div class="math-content">
+                <p align="center"> 
+                    $$\underbrace{P(1+r)^t}_{\text{(1)}} \ \ + \ \ \underbrace{\dfrac{12C}{r} \left[ (1+r)^t - 1 \right]}_{\text{(2)}}$$ 
                 </p>
-                <p align="center"> $$\underbrace{P(1+r)^t}_{\text{(1)}} + \underbrace{\dfrac{12C}{r} \left[ (1+r)^t - 1 \right]}_{\text{(2)}}$$ </p>
-                <p class="text-justify">
-                    Final equation:
+            </div>
+
+            <p class="text-justify">
+                We get the Future Value:
+            </p>
+
+            <div class="math-content">
+                <p align="center"> 
+                    $$\text{FV} = P(1+r)^t + \dfrac{12C}{r} \left[ (1+r)^t - 1 \right]$$ 
                 </p>
-                <p align="center"> $$\text{Compound Interest} = P(1+r)^t + \dfrac{12C}{r} \left[ (1+r)^t - 1 \right]$$ </p>
+            </div>
+
+            <p class="text-justify">
+                To adjust for inflation, the final formula is modified to:
+            </p>
+
+            <div class="math-content">
+                <p align="center"> 
+                    $$\text{FV$_{\text{adjusted}}$} = \dfrac{\text{FV}}{(1+i)^t} $$
+                </p>
             </div>
 
             <h3 class="mb-3">Variables Explained</h3>
@@ -62,12 +117,8 @@
                 <li>$$ r = \text{Annual interest rate (as a decimal)} $$</li>
                 <li>$$ t = \text{Length of time (in years)} $$</li>
                 <li>$$ C = \text{Monthly contributions (in USD)} $$</li>
+                <li>$$ i = \text{Inflation rate (as a decimal)} $$</li>
             </ul>            
-
-            <h3 class="mb-3">What factors can affect investment returns?</h3>
-            <p class="text-justify">
-                Several factors can affect investment returns, including market conditions, interest rates, economic indicators, and inflation. It's essential to consider these variables when planning your investments.
-            </p>
 
             <h3 class="mb-3">Is this calculator accurate?</h3>
             <p class="text-justify">
