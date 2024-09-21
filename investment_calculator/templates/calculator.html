@@ -100,8 +100,6 @@
     </div>
 </div>
 
-<!-- Include Plotly.js via CDN -->
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 {% if graph_json %}
 <script>
     var graph = JSON.parse('{{ graph_json|escapejs }}');
