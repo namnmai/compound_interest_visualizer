@@ -31,7 +31,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'compound-interest-visualizer-efb4a179a2bc.herokuapp.com',
     'www.compoundinterestvisualizer.com',
-    'compoundinterestvisualizer.com'
+    'compoundinterestvisualizer.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
