@@ -144,5 +144,3 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'  # Where collectstatic will collect files
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-SECURE_SSL_REDIRECT = True
