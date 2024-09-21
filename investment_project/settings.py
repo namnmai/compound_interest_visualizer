@@ -24,12 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'compound-interest-visualizer-efb4a179a2bc.herokuapp.com',
+    'www.compoundinterestvisualizer.com',
     'compoundinterestvisualizer.com'
 ]
 
@@ -143,3 +144,5 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'  # Where collectstatic will collect files
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SECURE_SSL_REDIRECT = True
