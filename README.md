@@ -10,7 +10,6 @@ A compound interest calculator web application designed to demonstrate the power
 
 ## Table of Contents
 - [Technologies Used](#technologies-used)
-- [Background](#background)
 
 
 ## Technologies Used<a name="technologies-used"></a>
