@@ -109,9 +109,3 @@ def generate_empty_plot():
 def generate_empty_table():
     # Create an empty table structure with headers but no data
     return []
-
-def about(request):
-    return render(request, 'about.html')
-
-def faq(request):
-    return render(request, 'faq.html')
